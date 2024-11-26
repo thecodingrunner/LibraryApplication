@@ -61,12 +61,26 @@
 
         public List<string> SearchByTitle(string title)
         {
-            return books.Where(book => book.Title == title).Select(book => book.ToString()).ToList();
+            return books
+                .Where(book => book.Title == title)
+                .Select(book => book.ToString())
+                .ToList();
         }
 
         public List<string> SearchByAuthor(string author)
         {
-            return books.Where(book => book.Author == author).Select(book => book.ToString()).ToList();
+            return books
+                .Where(book => book.Author == author)
+                .Select(book => book.ToString())
+                .ToList();
+        }
+
+        public List<string> SearchByDescription(string? descriptionQuery)
+        {
+            return books
+                .Where(book => book.Description.ToLower().Contains(descriptionQuery.ToLower()))
+                .Select(book => book.ToString())
+                .ToList();
         }
     }
 }

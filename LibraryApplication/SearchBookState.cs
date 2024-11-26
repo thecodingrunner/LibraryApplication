@@ -10,7 +10,7 @@
         {
             Console.WriteLine("Welcome to the search page");
             Console.WriteLine("Select a method of searching:");
-            Console.WriteLine("0 - Go back to main menu, 1 - Search by title, 2 - Search by author");
+            Console.WriteLine("0 - Go back to main menu, 1 - Search by title, 2 - Search by author, 3 - Search by description");
             string option = Console.ReadLine();
             switch (option)
             {
@@ -22,6 +22,9 @@
                     break;
                 case "2":
                     DisplayBooks(SearchByAuthor());
+                    break;
+                case "3":
+                    DisplayBooks(SearchByDescription());
                     break;
             }
         }
@@ -38,6 +41,14 @@
             Console.WriteLine("Please enter book author");
             string searchedAuthor = Console.ReadLine();
             return _application.BookManager.SearchByAuthor(searchedAuthor);
+        }
+
+        private List<string> SearchByDescription()
+        {
+            Console.WriteLine("Please enter descripton query:");
+            string descriptionQuery = Console.ReadLine();
+            return _application.BookManager.SearchByDescription(descriptionQuery);
+
         }
 
         private void DisplayBooks(List<string> books)
