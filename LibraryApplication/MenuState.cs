@@ -25,7 +25,7 @@
                     Console.WriteLine("edit book...");
                     break;
                 case "3":
-                    //_application.CurrentState = new De
+                    _application.CurrentState = new DeleteBookState(_application);
                     break;
                 case "4":
                     _application.CurrentState = new ViewAllBooksState(_application);
