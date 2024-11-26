@@ -10,7 +10,6 @@ namespace LibraryApplication
     {
         public List<Book> books = new List<Book>();
 
-
         public void AddBook(string title, string description, string author, DateOnly publicationDate, int pages)
         {
             Book book = new Book(title, description, author, publicationDate, pages);
@@ -59,6 +58,11 @@ namespace LibraryApplication
                 bookInfo.Add($"\n\nTitle: {book.Title} \nDescription: {book.Description} \nAuthor: {book.Author} \nPublication Date: {book.PublicationDate.ToShortDateString()} \nPages: {book.Pages}\n\n");
             }
             return bookInfo;
+        }
+
+        public void SaveBooks()
+        {
+            FileHandler.WriteBooksToFile(books);
         }
     }
 }

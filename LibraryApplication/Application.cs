@@ -4,7 +4,7 @@
     {
         private bool _isRunning = false;
         public State CurrentState { get; set; }
-        public BookManager BookManager { get; set; }
+        public BookManager BookManager { get; }
 
         public Application()
         {
@@ -25,6 +25,7 @@
         public void Stop()
         {
             _isRunning = false;
+            BookManager.SaveBooks();
         }
     }
 }
