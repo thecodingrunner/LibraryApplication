@@ -8,7 +8,7 @@ namespace LibraryApplication
 {
     public class BookManager
     {
-        public List<Book> books = new List<Book>();
+        public List<Book> books = FileHandler.ReadBooksFromFile();
 
         public void AddBook(string title, string description, string author, DateOnly publicationDate, int pages)
         {
