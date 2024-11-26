@@ -1,4 +1,4 @@
-﻿namespace LibraryApplication
+﻿namespace LibraryApplication.States
 {
     internal class ViewAllBooksState : State
     {

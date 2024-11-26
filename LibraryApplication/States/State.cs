@@ -1,4 +1,4 @@
-﻿namespace LibraryApplication
+﻿namespace LibraryApplication.States
 {
     public abstract class State
     {
@@ -10,6 +10,6 @@
         }
 
         public abstract void Run();
-       
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace LibraryApplication
+﻿namespace LibraryApplication.Data
 {
     public class Book
     {
@@ -25,6 +25,6 @@
         {
             return $"ID: {BookId}\nTitle: {Title} \nDescription: {Description} \nAuthor: {Author} \nPublication Date: {PublicationDate.ToShortDateString()} \nPages: {Pages}\n";
         }
-    
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace LibraryApplication
+﻿namespace LibraryApplication.States
 {
     internal class DeleteBookState : State
     {
@@ -13,7 +13,7 @@
 
             try
             {
-                int bookId = Int32.Parse(Console.ReadLine());
+                int bookId = int.Parse(Console.ReadLine());
                 _application.BookManager.DeleteBook(bookId);
             }
             catch (Exception ex)

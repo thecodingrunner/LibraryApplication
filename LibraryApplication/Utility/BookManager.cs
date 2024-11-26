@@ -1,4 +1,6 @@
-﻿namespace LibraryApplication
+﻿using LibraryApplication.Data;
+
+namespace LibraryApplication.Utility
 {
     public class BookManager
     {
@@ -30,12 +32,12 @@
                     book.PublicationDate = DateOnly.Parse(value);
                     break;
                 case "5":
-                    book.Pages = Int32.Parse(value);
+                    book.Pages = int.Parse(value);
                     break;
             }
         }
 
-        public void DeleteBook(int bookId) 
+        public void DeleteBook(int bookId)
         {
             Book book = books.Find(book => book.BookId == bookId);
             if (book != null)

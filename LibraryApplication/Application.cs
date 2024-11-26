@@ -1,4 +1,7 @@
-﻿namespace LibraryApplication
+﻿using LibraryApplication.States;
+using LibraryApplication.Utility;
+
+namespace LibraryApplication
 {
     public class Application
     {

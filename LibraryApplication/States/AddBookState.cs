@@ -1,4 +1,4 @@
-﻿namespace LibraryApplication
+﻿namespace LibraryApplication.States
 {
     internal class AddBookState : State
     {
@@ -25,7 +25,7 @@
                 DateOnly publicationDate = DateOnly.Parse(Console.ReadLine());
 
                 Console.WriteLine("Please enter the number of pages in the book");
-                int pages = Int32.Parse(Console.ReadLine());
+                int pages = int.Parse(Console.ReadLine());
 
                 _application.BookManager.AddBook(title, description, author, publicationDate, pages);
             }

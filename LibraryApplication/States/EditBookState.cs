@@ -1,4 +1,4 @@
-﻿namespace LibraryApplication
+﻿namespace LibraryApplication.States
 {
     internal class EditBookState : State
     {
@@ -12,7 +12,7 @@
             try
             {
                 Console.WriteLine("Please input the book id of the book you would like to edit");
-                int bookId = Int32.Parse(Console.ReadLine());
+                int bookId = int.Parse(Console.ReadLine());
 
                 Console.WriteLine("Please select the field that you would like to edit");
                 Console.WriteLine("1 - Title, 2 - Description, 3 - Author, 4 - Publication Date, 5 - Pages");
