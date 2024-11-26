@@ -15,10 +15,7 @@ namespace LibraryApplication
         public override void Run()
         {
             List<string> books = _application.BookManager.GetAllBookInfo();
-            foreach (string book in books)
-            {
-                Console.WriteLine(book);
-            }
+            books.ForEach(Console.WriteLine);
             _application.CurrentState = new MenuState(_application);
         }
     }

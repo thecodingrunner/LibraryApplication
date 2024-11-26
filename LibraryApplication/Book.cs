@@ -27,5 +27,11 @@ namespace LibraryApplication
             NumberOfBooks++;
             BookId = NumberOfBooks;
         }
+
+        public override string ToString()
+        {
+            return $"\n\nTitle: {Title} \nDescription: {Description} \nAuthor: {Author} \nPublication Date: {PublicationDate.ToShortDateString()} \nPages: {Pages}\n\n";
+        }
+    
     }
 }

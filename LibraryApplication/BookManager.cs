@@ -55,7 +55,7 @@ namespace LibraryApplication
             List<string> bookInfo = new List<string>();
             foreach (Book book in books)
             {
-                bookInfo.Add($"\n\nTitle: {book.Title} \nDescription: {book.Description} \nAuthor: {book.Author} \nPublication Date: {book.PublicationDate.ToShortDateString()} \nPages: {book.Pages}\n\n");
+                bookInfo.Add(book.ToString());
             }
             return bookInfo;
         }
@@ -65,14 +65,14 @@ namespace LibraryApplication
             FileHandler.WriteBooksToFile(books);
         }
 
-        public List<Book> SearchByTitle(string title)
+        public List<string> SearchByTitle(string title)
         {
-            return books.Where(book => book.Title == title).ToList();
+            return books.Where(book => book.Title == title).Select(book => book.ToString()).ToList();
         }
 
-        public List<Book> SearchByAuthor(string author)
+        public List<string> SearchByAuthor(string author)
         {
-            return books.Where(book => book.Author == author).ToList();
+            return books.Where(book => book.Author == author).Select(book => book.ToString()).ToList();
         }
     }
 }
