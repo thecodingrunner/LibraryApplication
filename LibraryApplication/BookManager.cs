@@ -64,5 +64,15 @@ namespace LibraryApplication
         {
             FileHandler.WriteBooksToFile(books);
         }
+
+        public List<Book> SearchByTitle(string title)
+        {
+            return books.Where(book => book.Title == title).ToList();
+        }
+
+        public List<Book> SearchByAuthor(string author)
+        {
+            return books.Where(book => book.Author == author).ToList();
+        }
     }
 }
