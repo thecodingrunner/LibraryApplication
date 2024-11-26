@@ -8,6 +8,8 @@
 
         public override void Run()
         {
+            Console.WriteLine("All Books in Database:");
+            Console.WriteLine();
             List<string> books = _application.BookManager.GetAllBookInfo();
             books.ForEach(Console.WriteLine);
             _application.CurrentState = new MenuState(_application);

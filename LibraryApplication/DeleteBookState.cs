@@ -8,6 +8,7 @@
 
         public override void Run()
         {
+            Console.WriteLine("--- Delete Book ---");
             Console.WriteLine("Please input the book id of the book you would like to delete");
 
             try

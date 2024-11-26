@@ -15,17 +15,23 @@
         public void Run()
         {
             _isRunning = true;
+            Console.WriteLine("--- Library Manager Application ---");
             while(_isRunning)
             {
                 // do stuff our program needs to do
                 CurrentState.Run();
+                Console.WriteLine();
             }
         }
 
         public void Stop()
         {
             _isRunning = false;
+
+            Console.WriteLine("Saving Data...");
             BookManager.SaveBooks();
+
+            Console.WriteLine("Goodbye!");
         }
     }
 }

@@ -8,7 +8,7 @@
 
         public override void Run()
         {
-            Console.WriteLine("Welcome to the search page");
+            Console.WriteLine("--- Search Books ---");
             Console.WriteLine("Select a method of searching:");
             Console.WriteLine("0 - Go back to main menu, 1 - Search by title, 2 - Search by author, 3 - Search by description");
             string option = Console.ReadLine();
@@ -53,6 +53,7 @@
 
         private void DisplayBooks(List<string> books)
         {
+            Console.WriteLine();
             books.ForEach(Console.WriteLine);
         }
     }

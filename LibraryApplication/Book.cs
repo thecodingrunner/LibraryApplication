@@ -23,7 +23,7 @@
 
         public override string ToString()
         {
-            return $"\n\nTitle: {Title} \nDescription: {Description} \nAuthor: {Author} \nPublication Date: {PublicationDate.ToShortDateString()} \nPages: {Pages}\n\n";
+            return $"ID: {BookId}\nTitle: {Title} \nDescription: {Description} \nAuthor: {Author} \nPublication Date: {PublicationDate.ToShortDateString()} \nPages: {Pages}\n";
         }
     
     }
