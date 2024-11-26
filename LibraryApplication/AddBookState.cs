@@ -14,7 +14,26 @@ namespace LibraryApplication
 
         public override void Run()
         {
-            Console.WriteLine("Adding a new book... [not implemented yet]");
+            Console.WriteLine("Please enter the book title");
+            string title = Console.ReadLine();
+            Console.WriteLine("Please enter the book description");
+            string description = Console.ReadLine();
+            Console.WriteLine("Please enter the book author");
+            string author = Console.ReadLine();
+            Console.WriteLine("Please enter the book publication date");
+            DateOnly publicationDate = DateOnly.Parse(Console.ReadLine());
+            Console.WriteLine("Please enter the number of pages in the book");
+            int pages = Int32.Parse(Console.ReadLine());
+
+            try
+            {
+                _application.BookManager.AddBook(title, description, author, publicationDate, pages);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             // loads of logic goes here
             _application.CurrentState = new MenuState(_application);
         }

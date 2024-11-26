@@ -25,10 +25,10 @@
                     Console.WriteLine("edit book...");
                     break;
                 case "3":
-                    Console.WriteLine("delete book...");
+                    //_application.CurrentState = new De
                     break;
                 case "4":
-                    Console.WriteLine("view all books...");
+                    _application.CurrentState = new ViewAllBooksState(_application);
                     break;
             }
 

@@ -4,10 +4,12 @@
     {
         private bool _isRunning = false;
         public State CurrentState { get; set; }
+        public BookManager BookManager { get; set; }
 
         public Application()
         {
             CurrentState = new MenuState(this);
+            BookManager = new BookManager();
         }
 
         public void Run()
