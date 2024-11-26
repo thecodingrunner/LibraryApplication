@@ -22,7 +22,7 @@
                     _application.CurrentState = new AddBookState(_application);
                     break;
                 case "2":
-                    Console.WriteLine("edit book...");
+                    _application.CurrentState = new EditBookState(_application);
                     break;
                 case "3":
                     _application.CurrentState = new DeleteBookState(_application);

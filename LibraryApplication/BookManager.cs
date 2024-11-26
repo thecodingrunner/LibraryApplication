@@ -18,8 +18,28 @@ namespace LibraryApplication
             books.Add(book);
         }
 
-        public void EditBook<T>(int bookId, string field, T value)
+        public void EditBook(int bookId, string field, string value)
         {
+            Book book = books.Find(book => book.BookId == bookId);
+
+            switch (field)
+            {
+                case "1":
+                    book.Title = value;
+                    break;
+                case "2":
+                    book.Description = value;
+                    break;
+                case "3":
+                    book.Author = value;
+                    break;
+                case "4":
+                    book.PublicationDate = DateOnly.Parse(value);
+                    break;
+                case "5":
+                    book.Pages = Int32.Parse(value);
+                    break;
+            }
         }
 
         public void DeleteBook(int bookId) 
@@ -36,7 +56,7 @@ namespace LibraryApplication
             List<string> bookInfo = new List<string>();
             foreach (Book book in books)
             {
-                bookInfo.Add($"Title: {book.Title} Description: {book.Description} Author: {book.Author} Publication Date: {book.PublicationDate.ToShortDateString()} Pages: {book.Pages}");
+                bookInfo.Add($"\n\nTitle: {book.Title} \nDescription: {book.Description} \nAuthor: {book.Author} \nPublication Date: {book.PublicationDate.ToShortDateString()} \nPages: {book.Pages}\n\n");
             }
             return bookInfo;
         }

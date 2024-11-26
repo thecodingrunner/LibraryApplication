@@ -9,12 +9,12 @@ namespace LibraryApplication
 {
     public class Book
     {
-        public string Title { get; private set; }
-        public string Description { get; private set; }
-        public string Author { get; private set; }
-        public DateOnly PublicationDate { get; private set; }
-        public int Pages { get; private set; }
-        public int BookId { get; private set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Author { get; set; }
+        public DateOnly PublicationDate { get; set; }
+        public int Pages { get; set; }
+        public int BookId { get; set; }
         static int NumberOfBooks = 0;
 
         public Book(string title, string description, string author, DateOnly publicationDate, int pages)
