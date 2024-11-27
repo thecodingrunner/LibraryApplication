@@ -6,20 +6,24 @@ namespace LibraryApplication
     public class Application
     {
         private bool _isRunning = false;
-        public State CurrentState { get; set; }
+
         public BookManager BookManager { get; }
+
+        public State CurrentState { get; set; } 
+        public IFileHandler FileHandler { get; set; }
 
         public Application()
         {
             CurrentState = new MenuState(this);
-            BookManager = new BookManager();
+            FileHandler = new FileHandler();
+            BookManager = new BookManager(FileHandler);
         }
 
         public void Run()
         {
             _isRunning = true;
             Console.WriteLine("--- Library Manager Application ---");
-            while(_isRunning)
+            while (_isRunning)
             {
                 // do stuff our program needs to do
                 CurrentState.Run();

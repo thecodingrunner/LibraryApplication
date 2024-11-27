@@ -3,18 +3,14 @@ using System.Text.Json;
 
 namespace LibraryApplication.Utility
 {
-    public static class FileHandler
+    public class FileHandler : IFileHandler
     {
 
-        public const string Path = "./library.json";
+        // bad practice - eventually change this to be set outside this class
+        // ideally would use some sort of configuration file
+        public string Path { get; } = "./library.json";
 
-        public static void WriteBooksToFile(List<Book> books)
-        {
-            string jsonString = JsonSerializer.Serialize(books);
-            File.WriteAllText(Path, jsonString);
-        }
-
-        public static List<Book> ReadBooksFromFile()
+        public List<Book> ReadBooksFromFile()
         {
             if (!File.Exists(Path))
             {
@@ -25,5 +21,10 @@ namespace LibraryApplication.Utility
             return json;
         }
 
+        public void WriteBooksToFile(List<Book> books)
+        {
+            string jsonString = JsonSerializer.Serialize(books);
+            File.WriteAllText(Path, jsonString);
+        }
     }
 }

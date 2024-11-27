@@ -4,18 +4,34 @@ namespace LibraryApplication.Utility
 {
     public class BookManager
     {
-        public List<Book> books = FileHandler.ReadBooksFromFile();
+        private List<Book> _books;
+
+        private IFileHandler _fileHandler { get; set; } 
+
+        public BookManager(IFileHandler fileHandler)
+        {
+            _fileHandler = fileHandler;
+            _books = _fileHandler.ReadBooksFromFile();
+        }
 
         public void AddBook(string title, string description, string author, DateOnly publicationDate, int pages)
         {
             Book book = new Book(title, description, author, publicationDate, pages);
+            _books.Add(book);
+        }
 
-            books.Add(book);
+        public void DeleteBook(int bookId)
+        {
+            Book book = _books.Find(book => book.BookId == bookId);
+            if (book != null)
+            {
+                _books.Remove(book);
+            }
         }
 
         public void EditBook(int bookId, string field, string value)
         {
-            Book book = books.Find(book => book.BookId == bookId);
+            Book book = _books.Find(book => book.BookId == bookId);
 
             switch (field)
             {
@@ -36,20 +52,10 @@ namespace LibraryApplication.Utility
                     break;
             }
         }
-
-        public void DeleteBook(int bookId)
-        {
-            Book book = books.Find(book => book.BookId == bookId);
-            if (book != null)
-            {
-                books.Remove(book);
-            }
-        }
-
         public List<string> GetAllBookInfo()
         {
             List<string> bookInfo = new List<string>();
-            foreach (Book book in books)
+            foreach (Book book in _books)
             {
                 bookInfo.Add(book.ToString());
             }
@@ -58,20 +64,12 @@ namespace LibraryApplication.Utility
 
         public void SaveBooks()
         {
-            FileHandler.WriteBooksToFile(books);
-        }
-
-        public List<string> SearchByTitle(string title)
-        {
-            return books
-                .Where(book => book.Title == title)
-                .Select(book => book.ToString())
-                .ToList();
+            _fileHandler.WriteBooksToFile(_books);
         }
 
         public List<string> SearchByAuthor(string author)
         {
-            return books
+            return _books
                 .Where(book => book.Author == author)
                 .Select(book => book.ToString())
                 .ToList();
@@ -79,8 +77,16 @@ namespace LibraryApplication.Utility
 
         public List<string> SearchByDescription(string? descriptionQuery)
         {
-            return books
+            return _books
                 .Where(book => book.Description.ToLower().Contains(descriptionQuery.ToLower()))
+                .Select(book => book.ToString())
+                .ToList();
+        }
+
+        public List<string> SearchByTitle(string title)
+        {
+            return _books
+                .Where(book => book.Title == title)
                 .Select(book => book.ToString())
                 .ToList();
         }
