@@ -29,11 +29,10 @@
             }
         }
 
-        private List<string> SearchByTitle()
+        private void DisplayBooks(List<string> books)
         {
-            Console.WriteLine("Please enter book title");
-            string searchedTitle = Console.ReadLine();
-            return _application.BookManager.SearchByTitle(searchedTitle);
+            Console.WriteLine();
+            books.ForEach(Console.WriteLine);
         }
 
         private List<string> SearchByAuthor()
@@ -51,10 +50,11 @@
 
         }
 
-        private void DisplayBooks(List<string> books)
+        private List<string> SearchByTitle()
         {
-            Console.WriteLine();
-            books.ForEach(Console.WriteLine);
+            Console.WriteLine("Please enter book title");
+            string searchedTitle = Console.ReadLine();
+            return _application.BookManager.SearchByTitle(searchedTitle);
         }
     }
 }
